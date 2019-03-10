@@ -1,0 +1,214 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KSU Blog</title>
+  <meta charset="utf-8"/>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <div class="row">
+          <h1 class="col-sm-4"><a href="{% url 'board' %}">KSU BLOG</a></h1>
+          <nav class="col-sm-8 text-right">
+            {% if user.is_authenticated %}
+            <p>반갑습니다 {{ user.username }} 님!</p>
+            <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+    <form id="logout" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %} <input type="hidden" />
+    </form>
+            {% else %}
+            <a href="{%url 'login' %}"><p>로그인</p></a>
+            {% endif %}
+            <a href="{%url 'see' %}"><p>게시판</p></a>
+            <a href="{%url 'contact' %}"><p>컨택트</p></a>
+          </nav>
+        </div>
+      </header>
+
+  <section class="container">
+      <div id="blog">
+          <div class="post">
+            <h2>Contact</h2>
+            <h3>경성대학교 블로그 홈페이지에 오신 것을 환영합니다!</h3>
+            <div class="container2">
+            <strong class="opening-line">경성대학교 ◆ 慶星大學校 ◆ Kyungsung University</strong>
+            <img src="{% static 'img/ksu.png' %}" class="rounded mx-auto d-block" alt="프로필 사진">
+            <p>표어: 진리  봉사  자유</p>
+              <br>
+            <div class="container1">
+            <p>종류:  사립</p>
+            <p>설립: 1955년</p>
+            <p>총장: 송수건</p>
+            <p>부총장: 김철범</p>
+            <p>설립자 김길창</p>
+            <p>학교법인: 한성학원</p>
+            <p>국가: 대한민국</p>
+            <p>위치: 부산광역시 남구 수영로 309</p>
+            <p>상징물: 청색, 은행나무, 독수리, 별</p>
+            <br>
+          </div>
+          <strong><p>-학교 설명-</p></strong>
+            1955년 5월에 김길창 목사가 기독교 정신을 바탕으로 한 교육자 양성을 목적으로 경남사범대숙을 설립하였다. 당시 학교는 야간부 4년제로 국어국문학과, 영어영문학과, 수학과, 가정학과 등 4개학과가 개설되었다. 서대신동 3가 184번지를 첫 교사로 하여 초대 총장으로 김길창 목사가 취임하였다.
+
+1963년, 한성여자실업초급대학으로 개편 인가를 받아 음악과, 미술과, 체육과, 보육과 등 4개 학과로 개편되어 부산 중구 대청동1가로 교사를 이전하였다. 그 해 재단법인 경남대학교육원을 한성학원으로 명칭을 변경하였으며 2부(야간) 3개학과를 신설하여 의상과, 음악과, 보육과를 신설하였다.
+
+1966년 영도구 영선동 신교사로 이전하였으며, 1967년 도서관을, 1972년 박물관을 개관하였다. 1973년에 이르러 현 캠퍼스인 대연동으로 이전하였으며, 1979년 4년제 대학으로 개편인가 및 부산산업대학으로 교명을 변경하였다. 본 캠퍼스에 있는 도서관은 1982년 처음으로 개관하였다. 1983년 종합대학교로 승격되어 1988년 경성대학교로 교명을 변경하였다.
+<br><br>       
+
+            <br>
+            <strong><p>-단과대 소개-</p></strong>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">문과대</th>
+                  <th scope="col">법정대</th>
+                  <th scope="col">경영대</th>
+                  <th scope="col">이과대</th>
+                  <th scope="col">공과대</th>
+                  <th scope="col">약학대</th>
+                  <th scope="col">예종대</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>인문문화학부</td>
+                  <td>법행정정치학부</td>
+                  <td>경제금융물류학부</td>
+                  <td>수학응용통계학부</td>
+                  <td>건설환경도시공학부</td>
+                  <td>약학과</td>
+                  <td>음악학부</td>
+                </tr>
+                <tr>
+                  <td>글로컬문화학부</td>
+                  <td>커뮤니케이션학부</td>
+                  <td>호텔관광외식경영학부</td>
+                  <td>화학생명공학부</td>
+                  <td>식품응용공학부</td>
+                  <td></td>
+                  <td>디자인학부</td>
+                </tr>
+                <tr>
+                  <td>영어영문학과</td>
+                  <td>사회복지학과</td>
+                  <td>경영학과</td>
+                  <td>에너지과학과</td>
+                  <td>건축디자인학부</td>
+                  <td></td>
+                  <td>연극영화학부</td>
+                </tr>
+                <tr>
+                  <td>중국학과</td>
+                  <td></td>
+                  <td>국제무역통상학과</td>
+                  <td>물리치료학과</td>
+                  <td>기계메카트로닉스공학부</td>
+                  <td></td>
+                  <td>영상애니메이션학부</td>
+                </tr>
+                <tr>
+                  <td>문헌정보학과</td>
+                  <td></td>
+                  <td>회계학과</td>
+                  <td>간호학과</td>
+                  <td>산업경영공학과</td>
+                  <td></td>
+                  <td>디지털미디어학부</td>
+                </tr>
+                <tr>
+                  <td>유아교육과</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>신소재공학과</td>
+                  <td></td>
+                  <td>스포츠건강학과</td>
+                </tr>
+                <tr>
+                  <td>윤리교육학과</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>전자/전기공학과</td>
+                  <td></td>
+                  <td>미술학과</td>
+                </tr>
+                <tr>
+                  <td>유아교육과</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>신소재공학과</td>
+                  <td></td>
+                  <td>스포츠건강학과</td>
+                </tr>
+                <tr>
+                  <td>심리학과</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>컴퓨터공학과</td>
+                  <td></td>
+                  <td>공예디자인학과</td>
+                </tr>
+              
+                <tr>
+                  <td>교육학과</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>소프트웨어학과</td>
+                  <td></td>
+                  <td>사진학과</td>
+                </tr>
+                
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>정보통신공학과</td>
+                  <td></td>
+                  <td>패션디자인학과</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>제약공학과</td>
+                  <td></td>
+                  <td>무용학과</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+        </div>
+      </div>
+    </section>
+      <br><br>
+    <footer class="container">
+ <div class="row">
+    <p class="col-sm-4">&copy; 2019 ksublog</p>
+    <ul class="col-sm-8">
+        <li class="col-sm-1"><a href="https://twitter.com/hashtag/%EB%B6%80%EC%82%B0%EA%B2%BD%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90?lang=ko"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></a></li>
+               <li class="col-sm-1"><a href="https://ko-kr.facebook.com/ksupkudaesin/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg"></a></li>
+           <li class="col-sm-1"><a href="https://www.instagram.com/explore/locations/1014263720/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></a></li>
+         <li class="col-sm-1"><a href="mailto:ksu@likelion.org?Subject=제목을%20작성하세요." target="_top"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg"></a></li>
+    </ul>
+  </div>
+</footer>
+</section>
+
+</body>
+</html>

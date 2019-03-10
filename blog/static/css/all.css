@@ -1,0 +1,177 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+  
+  header {
+    padding: 20px 0;
+  }
+  
+  header .row,
+  footer .row {
+    display: flex;
+    align-items: center;
+  }
+  
+  a:link { color: black; text-decoration: none;}
+  a:visited { color: black; text-decoration: none;}
+  a:hover { color: lightslategray; text-decoration: none;}
+
+  header h1 {
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  header nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  header p {
+    padding: 0 20px;
+    margin: 0;
+  }
+  
+  .jumbotron {
+    display: flex;
+    align-items: center;
+    background-image: url('http://cdn.ppomppu.co.kr/zboard/data3/2018/0921/20180921120029_smdpctyd.gif');
+    background-size: cover;
+    color: #ffffff;
+    height: 500px;
+    text-shadow: 0.25px 0.25px 0.25px #000000;
+    border-bottom: 1px solid #fbd1d5;
+  }
+  
+  .jumbotron h2 {
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+  }
+  
+  .jumbotron h6 {
+    margin: 0 0 20px;
+    color: rgb(224, 164, 164);
+  }
+  
+  section .row img {
+    margin: 0 0 30px;
+    width: 100%;
+  }
+  
+  .col-md-6 {
+    margin: 0 0 30px;
+  }
+  
+  .btn.btn-primary {
+    border-radius: 2px;
+    border: 0px;
+    color: #fbd1d5;
+    text-shadow: none;
+    background-color: #ffffff;
+  }
+  
+  .btn.btn-primary:hover {
+    color: #ffffff;
+    background-color: #fbd1d5;
+  }
+  
+  .btn-secondary {
+    background-color: #E8DFE0;
+    color: #ffffff;
+    margin: 0 0 30px;
+  }
+  
+  footer {
+    font-size: 12px;
+    padding: 20px 0;
+    border-top: 1px solid #fbd1d5;
+  }
+  
+  footer .col-sm-8 {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  footer ul {
+    list-style: none;
+  }
+  
+  footer li img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .row {
+    font-family: 'Jua', sans-serif;
+  }
+
+  .container0 {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px 8px 7px 8px;
+    background-image:url('https://watermark.lovepik.com/photo/40012/1375.jpg_wh1200.jpg');
+    border: 2px solid #fbd1d5;
+    opacity: 0.8;
+    border-radius: 10px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+  }
+
+  .container1 {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    padding: 10px 8px 7px 8px;
+    background-color: white;
+    border: 2px solid #fbd1d5;
+    opacity: 0.8;
+    border-radius: 10px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+  }
+
+  .container {
+    font-family: 'Jua', sans-serif;
+  }
+
+ 
+  #blog {
+    width: 86%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #blog .post {
+    width: 52%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.8;
+    color: #444444;
+  }
+  
+  .post h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .post h3 {
+    font-size: 1.125rem;
+    color: #999999;
+  }
+  
+  .post .opening-line {
+    margin-top: 4.1875rem;
+    margin-bottom: 1.5rem;
+    color: black;
+    font-weight: bold;
+  }

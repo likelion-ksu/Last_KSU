@@ -1,0 +1,74 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KSU Blog login</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
+</head>
+<body>
+  <header class="container">
+    <div class="row">
+      <h1 class="col-sm-4"><a href="{% url 'board' %}">KSU BLOG</a></h1>
+      <nav class="col-sm-8 text-right">
+        {% if user.is_authenticated %}
+        <p>반갑습니다 {{ user.username }} 님!</p>
+<a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+<form id="logout" method="POST" action="{% url 'logout' %}">
+{% csrf_token %} <input type="hidden" />
+</form>
+        {% else %}
+        <a href="{%url 'login' %}"><p>로그인</p></a>
+        {% endif %}
+        <a href="{%url 'see' %}"><p>게시판</p></a>
+        <a href="{%url 'contact' %}"><p>컨택트</p></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+        {% if error %}
+        {{ error }}
+        <br>
+        <br>
+        {% endif %}
+<div id="blog">
+    <div class="post">
+          <h2>로그인</h2>
+          
+          <div class="container1">
+                <h3>id와 p/w를 입력하세요.</h3>
+                <form method="POST" action="{%url 'login' %}">
+                {% csrf_token %}
+                id:
+                <input name="username" type="text" value="">
+                <br>
+                p/w:
+                <input name="password" type="password" value="">
+                <br>
+                <input class="btn btn-light" type="submit" value="로그인">
+                </form>
+                <br>
+                <p>혹시 계정이 없으신가요? ▷<a href="{% url 'signup' %}"><strong>회원가입</strong></a></p>
+        </div>
+  </div>
+</div>
+<footer class="container">
+        <div class="row">
+           <p class="col-sm-4">&copy; 2019 ksublog</p>
+           <ul class="col-sm-8">
+                <li class="col-sm-1"><a href="https://twitter.com/hashtag/%EB%B6%80%EC%82%B0%EA%B2%BD%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90?lang=ko"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></a></li>
+                <li class="col-sm-1"><a href="https://ko-kr.facebook.com/ksupkudaesin/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg"></a></li>
+            <li class="col-sm-1"><a href="https://www.instagram.com/explore/locations/1014263720/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></a></li>
+          <li class="col-sm-1"><a href="mailto:ksu@likelion.org?Subject=제목을%20작성하세요." target="_top"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg"></a></li>
+           </ul>
+         </div>
+       </footer>
+</section>
+
+</body>
+</html>

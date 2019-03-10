@@ -1,0 +1,88 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KSU Blog</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <div class="row">
+          <h1 class="col-sm-4"><a href="{% url 'board' %}">KSU BLOG</a></h1>
+          <nav class="col-sm-8 text-right">
+            {% if user.is_authenticated %}
+            <p>반갑습니다 {{ user.username }} 님!</p>
+            <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+    <form id="logout" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %} <input type="hidden" />
+    </form>
+            {% else %}
+            <a href="{%url 'login' %}"><p>로그인</p></a>
+            {% endif %}
+            <a href="{%url 'see' %}"><p>게시판</p></a>
+            <a href="{%url 'contact' %}"><p>컨택트</p></a>
+          </nav>
+        </div>
+      </header>
+
+  <section class="container">
+      <div class="container0">
+    <a href="{% url 'new' %}" class="btn btn-primary" role="button">글쓰기</a>
+    <br><br>
+    {% for blog in posts%}
+    <div class="card text-center">
+        <div class="card-body">
+          <h2 class="card-title">{{blog.title}}</h2>
+          <h6 class="card-text">{{blog.summary}}...</h6>
+          <a href="{% url 'detail' blog.id %}" class="btn btn-primary" role="button">...더보기</a>
+          
+        </div>
+        <div class="card-footer text-muted">
+            작성 날짜: {{blog.pub_date}}
+        </div>
+      </div>
+    
+      <br>
+{%endfor%}
+    </div>
+<div class="container">
+        <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                {%if posts.has_previous%}
+                  <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                  <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a></li>
+                {%endif%}
+
+                <li class="page-item"><a class="page-link" href="#">{{posts.number}}</a></li>
+
+                {%if posts.has_next%}
+                  <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+                  <li class="page-item"><a class="page-link" href="?page={{posts.paginator.num_pages}}">Last</a></li>
+                {%endif%}
+                </ul>
+              </nav>
+</div>
+        <footer class="container">
+            <div class="row">
+               <p class="col-sm-4">&copy; 2019 ksublog</p>
+               <ul class="col-sm-8">
+                  <li class="col-sm-1"><a href="https://twitter.com/hashtag/%EB%B6%80%EC%82%B0%EA%B2%BD%EC%84%B1%EB%8C%80%ED%95%99%EA%B5%90?lang=ko"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></a></li>
+               <li class="col-sm-1"><a href="https://ko-kr.facebook.com/ksupkudaesin/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg"></a></li>
+           <li class="col-sm-1"><a href="https://www.instagram.com/explore/locations/1014263720/"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></a></li>
+         <li class="col-sm-1"><a href="mailto:ksu@likelion.org?Subject=제목을%20작성하세요." target="_top"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg"></a></li>
+               </ul>
+             </div>
+           </footer>
+</section>
+
+</body>
+</html>
