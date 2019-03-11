@@ -40,6 +40,7 @@ body {
     color: #ffffff;
     height: 500px;
     text-shadow: 0.25px 0.25px 0.25px #000000;
+    text-align: center;
     border-bottom: 1px solid #fbd1d5;
   }
   
@@ -175,3 +176,16 @@ body {
     color: black;
     font-weight: bold;
   }
+
+  #serif {
+  padding-top: 77px;
+  margin-top: -77px;
+}
+
+.editorial {
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: #4C4C4C;
+  border-bottom: solid 1px #fbd1d5;
+}
